@@ -41,10 +41,7 @@ class BigLinkWidget extends WP_Widget {
 		extract($args, EXTR_SKIP);
 		
 		$title = empty($instance['title']) ? ' ' : apply_filters('widget_title', $instance['title']);
-		
-		echo '<pre>';
-		print_r($link);
-		echo '</pre>';
+		$link = empty($instance['link']) ? ' ' : apply_filters('widget_title', $instance['link']);
 		
 		echo $before_widget, $before_title, '<a href="', $link, '">', !empty($title) ? $title : null, '</a>', $after_title, $after_widget;
 	}
