@@ -44,6 +44,8 @@ class BigLinkWidget extends WP_Widget {
 		
 		$title = empty($instance['title']) ? ' ' : apply_filters('widget_title', $instance['title']);
 		
+		echo '<h4>Test</h4>';
+		
 		if (!empty($link)) {
 			echo $before_title, '<a href="', $link, '">', !empty($title) ? $title : null, '</a>', $after_title;
 		}
