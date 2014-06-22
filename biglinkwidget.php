@@ -24,7 +24,7 @@ class BigLinkWidget extends WP_Widget {
 		?>
 		
 		<p><label for="<?php echo $this->get_field_id('title'); ?>">Title: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo attribute_escape($title); ?>" /></label></p>
-		<p><label for="<?php echo $this->get_field_id('link'); ?>">Link: <input class="widefat" id="<?php echo $this->get_field_id('link'); ?>" name="<?php echo $this->get_field_name('link'); ?>" type="text" value="<?php echo attribute_escape($link); ?>" /></label></p>
+		<p><label for="<?php echo $this->get_field_id('link'); ?>">Link: <input class="widefat" id="<?php echo $this->get_field_id('link'); ?>" name="<?php echo $this->get_field_name('link'); ?>" type="url" value="<?php echo attribute_escape($link); ?>" /></label></p>
 		
 		<?php
 	}
@@ -41,6 +41,8 @@ class BigLinkWidget extends WP_Widget {
 		extract($args, EXTR_SKIP);
 		
 		$title = empty($instance['title']) ? ' ' : apply_filters('widget_title', $instance['title']);
+		
+		echo "<script>alert({$link})</script>";
 		
 		echo $before_widget, $before_title, '<a href="', $link, '">', !empty($title) ? $title : null, '</a>', $after_title, $after_widget;
 	}
